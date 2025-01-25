@@ -1,0 +1,7 @@
+name: LobbyCore
+version: '1.0-SNAPSHOT'
+main: pl.adrianizykowski.lobbyCore.LobbyCore
+api-version: '1.18'
+authors: [ Adrian Iżykowski ]
+description: Zaawansowany plugin core dla Lobby serwera Minecraft
+website: https://github.com/Adixon0
