@@ -1,7 +1,12 @@
 package pl.adrianizykowski.lobbyCore;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.adrianizykowski.lobbyCore.config.Config;
+import pl.adrianizykowski.lobbyCore.listeners.CommandBlockerListener;
+import pl.adrianizykowski.lobbyCore.listeners.EntitySpawnListener;
+import pl.adrianizykowski.lobbyCore.listeners.PlayerImmortalityListener;
+import pl.adrianizykowski.lobbyCore.listeners.PlayerJoinQuitListener;
 
 public final class LobbyCore extends JavaPlugin {
 
@@ -12,7 +17,10 @@ public final class LobbyCore extends JavaPlugin {
         getLogger().info("Plugin zostaje uruchomiony...");
 
         config = new Config("config.yml", getLogger());
-        loadCustomConfigSettings();
+        getServer().getPluginManager().registerEvents(new PlayerJoinQuitListener(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerImmortalityListener(this), this);
+        getServer().getPluginManager().registerEvents(new EntitySpawnListener(this), this);
+        getServer().getPluginManager().registerEvents(new CommandBlockerListener(this), this);
 
         getLogger().info("Plugin został pomyślnie uruchomiony!");
     }
@@ -22,13 +30,6 @@ public final class LobbyCore extends JavaPlugin {
         getLogger().info("Plugin zostaje wyłączony...");
     }
 
-    private void loadCustomConfigSettings() {
-        String serverName = config.getString("settings.server-name");
-        int maxPlayers = config.getInt("settings.max-players");
-
-        getLogger().info("Nazwa serwera: " + serverName);
-        getLogger().info("Maksymalna liczba graczy: " + maxPlayers);
-    }
 
     public Config getCustomConfig() {
         return config;

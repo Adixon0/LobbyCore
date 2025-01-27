@@ -1,0 +1,45 @@
+# LobbyCore - Zaawansowany plugin Minecraft stworzony z myślą o serwerach typu Lobby.
+
+# Sekcja wiadomości
+messages:
+  # Wiadomość wyświetlana, gdy gracz próbuje użyć zablokowanej komendy
+  command-blocked: "&cTa komenda jest zablokowana na tym serwerze!"
+  # Jeśli gracz wbije czy ma być wysyłana do niego wiadomość na chat
+  join:
+    enabled: true
+    text: "&aWitaj na serwerze, {PLAYER}!"
+  # Jeśli gracz wyjdzie z serwera lobby czy ma być wysyłana wiadomość do konsoli
+  quit:
+    enabled: true
+    text: "&c{PLAYER} opuścił serwer."
+
+# Jeśli gracz wbije na lobby czy ma być wysyłana do niego wiadomość title
+title:
+  enabled: true
+  text: "&6Witaj, {PLAYER}!"
+  subtitle: "&eMiłej gry na naszym serwerze!"
+
+# Sekcja dźwięków
+sound:
+  # Jeśli gracz wbije na serwer lobby czy ma być wysyłany efekt dźwiękowy dla gracza
+  enabled: true
+  name: "ENTITY_PLAYER_LEVELUP"
+  volume: 1.0
+  pitch: 1.0
+
+# Sekcja ustawień
+settings:
+  # Czy na serwerze lobby ma być nieśmiertelność czyli czy ma spadać pasek głodu lub życia
+  immortality: true
+  # Wyłączenie zwierząt
+  disable-animals: true
+  # Wyłączenie potworów
+  disable-monsters: true
+  # Lista zablokowanych komend
+  blocked-commands:
+    - /pl
+    - /plugins
+    - /version
+    - /ver
+  # Uprawnienie umożliwiające obejście blokady komend
+  command-bypass-permission: "lobbycore.bypass.commands"
