@@ -53,6 +53,7 @@ public class Config {
         config.addDefault("messages.quit.enabled", true);
         config.addDefault("messages.quit.text", "&c{PLAYER} opuścił serwer.");
         config.addDefault("messages.command-blocked", "&cTa komenda jest zablokowana na tym serwerze!");
+        config.addDefault("messages.spawn-set", "&aSpawn został pomyślnie ustawiony!");
         config.addDefault("title.enabled", true);
         config.addDefault("title.text", "&6Witaj, {PLAYER}!");
         config.addDefault("title.subtitle", "&eMiłej gry na naszym serwerze!");
@@ -65,6 +66,16 @@ public class Config {
         config.addDefault("settings.disable-monsters", true);
         config.addDefault("settings.blocked-commands", List.of("/pl", "/plugins", "/version", "/ver"));
         config.addDefault("settings.command-bypass-permission", "lobbycore.bypass.commands");
+        config.addDefault("settings.setspawn-permission", "lobbycore.setspawn");
+        config.addDefault("settings.teleport-on-join", true);
+        config.addDefault("spawn.x", 0.0);
+        config.addDefault("spawn.y", 90.0);
+        config.addDefault("spawn.z", 0.0);
+        config.addDefault("spawn.yaw", 0.0);
+        config.addDefault("spawn.pitch", 0.0);
+        config.addDefault("settings.disable-rain", true);
+        config.addDefault("settings.lock-time", true);
+        config.addDefault("settings.time", "day");
 
 
         saveConfig();

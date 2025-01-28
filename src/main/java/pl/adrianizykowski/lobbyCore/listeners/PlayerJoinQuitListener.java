@@ -2,6 +2,7 @@ package pl.adrianizykowski.lobbyCore.listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -24,6 +25,17 @@ public class PlayerJoinQuitListener implements Listener {
 
         event.setJoinMessage(null);
 
+        boolean teleportOnJoin = plugin.getConfig().getBoolean("settings.teleport-on-join", true);
+        if (teleportOnJoin) {
+            double spawn_x = plugin.getConfig().getDouble("spawn.x", player.getWorld().getSpawnLocation().getX());
+            double spawn_y = plugin.getConfig().getDouble("spawn.y", player.getWorld().getSpawnLocation().getY());
+            double spawn_z = plugin.getConfig().getDouble("spawn.z", player.getWorld().getSpawnLocation().getZ());
+            float spawn_yaw = (float) plugin.getConfig().getDouble("spawn.yaw", player.getLocation().getYaw());
+            float spawn_pitch = (float) plugin.getConfig().getDouble("spawn.pitch", player.getLocation().getPitch());
+
+            player.teleport(new Location(player.getWorld(), spawn_x, spawn_y, spawn_z, spawn_yaw, spawn_pitch));
+        }
+
         boolean joinEnabled = plugin.getCustomConfig().getBoolean("messages.join.enabled");
         if (joinEnabled) {
             String joinMessage = plugin.getCustomConfig().getString("messages.join.text");
@@ -38,7 +50,7 @@ public class PlayerJoinQuitListener implements Listener {
             title = ChatColor.translateAlternateColorCodes('&', title.replace("{PLAYER}", player.getName()));
             subtitle = ChatColor.translateAlternateColorCodes('&', subtitle.replace("{PLAYER}", player.getName()));
 
-            player.sendTitle(title, subtitle, 10, 70, 20); // Czas wyświetlania: fade-in, stay, fade-out
+            player.sendTitle(title, subtitle, 10, 70, 20);
         }
 
         // Odtwarzanie dźwięku

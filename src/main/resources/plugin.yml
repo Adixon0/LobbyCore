@@ -5,3 +5,8 @@ api-version: '1.18'
 authors: [ Adrian Iżykowski ]
 description: Zaawansowany plugin core dla Lobby serwera Minecraft
 website: https://github.com/Adixon0
+
+commands:
+  setspawn:
+    description: Ustawia spawn graczy
+    usage: /setspawn

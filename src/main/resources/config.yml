@@ -2,6 +2,8 @@
 
 # Sekcja wiadomości
 messages:
+  # Wiadomość po ustawieniu spawnu
+  spawn-set: "&aSpawn został pomyślnie ustawiony!"
   # Wiadomość wyświetlana, gdy gracz próbuje użyć zablokowanej komendy
   command-blocked: "&cTa komenda jest zablokowana na tym serwerze!"
   # Jeśli gracz wbije czy ma być wysyłana do niego wiadomość na chat
@@ -43,3 +45,21 @@ settings:
     - /ver
   # Uprawnienie umożliwiające obejście blokady komend
   command-bypass-permission: "lobbycore.bypass.commands"
+  # Uprawnienie do używania komendy /setspawn
+  setspawn-permission: "lobbycore.setspawn"
+  # Czy gracz ma być teleportowany na spawn po dołączeniu?
+  teleport-on-join: true
+  # Zablokowanie deszczu i śniegu
+  disable-rain: true
+  # Zablokowanie czasu (stała pora dnia)
+  lock-time: true
+  # Stała pora dnia: "day" (dzień), "night" (noc) lub "none" (bez blokady czasu)
+  time: "day"
+
+# Sekcja spawnu (zostanie wypełniona przy użyciu komendy /setspawn)
+spawn:
+  x: 0.0
+  y: 90.0
+  z: 0.0
+  yaw: 0.0
+  pitch: 0.0
